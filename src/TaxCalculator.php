@@ -1,5 +1,7 @@
 <?
 
+namespace Src\TaxCalculator;
+
 use Src\Budget;
 
 class TaxCalculator
