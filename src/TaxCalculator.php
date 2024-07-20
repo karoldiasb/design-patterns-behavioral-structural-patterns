@@ -1,8 +1,9 @@
-<?
+<?php
 
-namespace Src\TaxCalculator;
+namespace Src;
 
 use Src\Budget;
+use Src\Tax\Tax;
 
 class TaxCalculator
 {
@@ -11,8 +12,8 @@ class TaxCalculator
      * @param Budget $budget
      * @return float
      */
-    public function calculate(Budget $budget)
+    public function calculate(Budget $budget, Tax $tax)
     {
-        return $budget->value * 0.1;
+        return $tax->calculate($budget);
     }
 }
