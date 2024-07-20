@@ -1,6 +1,6 @@
-<?
+<?php
 
-namespace Src\Discount\DiscountItem;
+namespace Src\Discount;
 
 use Src\Budget;
 use Src\Discount\Discount;

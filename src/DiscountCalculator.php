@@ -1,9 +1,11 @@
-<?
+<?php
+
+namespace Src;
 
 use Src\Budget;
-use Src\Discount\DiscountItem\DiscountItem;
-use Src\Discount\DiscountValue\DiscountValue;
-use Src\Discount\NoDiscount\NoDiscount;
+use Src\Discount\DiscountItem;
+use Src\Discount\DiscountValue;
+use Src\Discount\NoDiscount;
 
 class DiscountCalculator
 {
