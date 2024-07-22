@@ -1,7 +1,9 @@
 <?php
 
 use Src\Budget;
+use Src\Commands\CreateOrderHandler;
 use Src\DiscountCalculator;
+use Src\Input\OrderInput;
 use Src\Tax\Icms;
 use Src\Tax\Ipva;
 use Src\Tax\Irpf;
@@ -30,4 +32,12 @@ $discountCalculator = new DiscountCalculator();
 $budget->value = 600;
 $budget->itensQuantity = 5;
 
-echo 'discount calculated: ' . $discountCalculator->calculate($budget);
+echo 'discount calculated: ' . $discountCalculator->calculate($budget) . PHP_EOL;
+
+$orderInput = new OrderInput();
+$orderInput->setClientId(1);
+$orderInput->setBudgetQtItems(10);
+$orderInput->setBudgetValue(6000);
+
+$createOrderHandler = new CreateOrderHandler($orderInput);
+$createOrderHandler->execute();
