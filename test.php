@@ -15,19 +15,19 @@ $calculator = new TaxCalculator();
 $budget = new Budget();
 $budget->value = 100;
 
-echo 'icms value: ' . $calculator->calculate($budget, new Icms());
-echo ' | iss value: ' . $calculator->calculate($budget, new Iss());
+echo 'icms: ' . $calculator->calculate($budget, new Icms()) . PHP_EOL; 
+echo 'iss: ' . $calculator->calculate($budget, new Iss()) . PHP_EOL;
 
 $budget->value = 6.200;
-echo ' | irpf value: ' . $calculator->calculate($budget, new Irpf());
+echo 'irpf: ' . $calculator->calculate($budget, new Irpf()) . PHP_EOL;
 
 $budget->value = 41.200;
 $budget->isPassengerCar = true;
-echo ' | ipva value: ' . $calculator->calculate($budget, new Ipva());
+echo 'ipva: ' . $calculator->calculate($budget, new Ipva()) . PHP_EOL;
 
 $discountCalculator = new DiscountCalculator();
 
 $budget->value = 600;
 $budget->itensQuantity = 5;
 
-echo ' | discount calculator: ' . $discountCalculator->calculate($budget);
+echo 'discount calculated: ' . $discountCalculator->calculate($budget);
