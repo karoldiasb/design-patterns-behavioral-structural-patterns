@@ -4,10 +4,8 @@ use Src\Budget;
 use Src\Commands\CreateOrderHandler;
 use Src\DiscountCalculator;
 use Src\Input\OrderInput;
-use Src\Tax\Icms;
-use Src\Tax\Ipva;
-use Src\Tax\Irpf;
-use Src\Tax\Iss;
+use Src\Observers\{LogCreateOrder, SendEmailCreateOrder};
+use Src\Tax\{Icms, Ipva, Irpf, Iss};
 use Src\TaxCalculator;
 
 require 'vendor/autoload.php';
@@ -40,4 +38,6 @@ $orderInput->setBudgetQtItems(10);
 $orderInput->setBudgetValue(6000);
 
 $createOrderHandler = new CreateOrderHandler($orderInput);
+$createOrderHandler->addActionAfterCreateOrder(new LogCreateOrder());
+$createOrderHandler->addActionAfterCreateOrder(new SendEmailCreateOrder());
 $createOrderHandler->execute();
