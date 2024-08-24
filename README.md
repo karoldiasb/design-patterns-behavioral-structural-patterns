@@ -1,6 +1,6 @@
-# designer-patterns - behavioral patterns
+# designer-patterns - application of concepts for study purposes
 
-application of concepts for study purposes:
+## behavioral patterns
 - strategy
 - chain of responsability
 - template method
